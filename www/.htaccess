@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+#  RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} !-f 
+  RewriteCond %{REQUEST_FILENAME} !^(js|css|img/.+\.(?:js|css|png|gif|jpg|ico){1})$ 
+  RewriteRule ^.*   main.php [L]
+  
+</IfModule>
