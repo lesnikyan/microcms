@@ -57,7 +57,7 @@ class Mvc {
         }
         $inst = new $class();
         
-        pr($params);
+//        pr($params);
         $this->execController($inst, $method, $params);
     }
     

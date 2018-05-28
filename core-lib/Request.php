@@ -35,7 +35,7 @@ class Request {
     
     
     public function __construct() {
-        //$this->loadData();
+        //
     }
     
     public function prepare(){
@@ -49,7 +49,7 @@ class Request {
         $path = $urlParts['path'];
         $query = $urlParts['query'];
         $segments = explode('/', trim($path, "/"));
-        pr($segments);
+//        pr($segments);
         $this->data['segments'] = $segments;
         
         if(count($segments) < 1){
@@ -68,7 +68,7 @@ class Request {
             'url' => $url,
             'query' => $query
         ];
-        pr($this->data);
+//        pr($this->data);
     }
     
     public function __get($name){
