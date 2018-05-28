@@ -14,3 +14,12 @@ Main URL patterm: http://hostname/controller/method/params/s/s/s/s...
 Main controller: Main.
 Main controller method: index.
 
+class View - implementation of simplest template engine
+
+class r - wrapper for get / post data
+
+class session - wrapper for php session
+
+class cookie - wrapper for http cookie
+
+class files - wrapper for uploaded files

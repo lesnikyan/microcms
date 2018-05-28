@@ -4,6 +4,9 @@
  * Load any neccessary files: app constants, core, libs etc.
  */
 
+header("content-type: text/html;charset=utf-8");
+mb_internal_encoding('utf8');
+
 define('SERVER_ROOT', __DIR__);
 define('CORE_DIR', SERVER_ROOT . '/core-lib');
 define('APP_DIR', SERVER_ROOT . '/app');
@@ -11,7 +14,7 @@ define('CONTROLLER_DIR', APP_DIR . '/controllers');
 
 
 $coreLibs = [
-    'funcs', '../conf', 'Request', 'Controller', 'Model', 'Entity', 'View', 'Mvc', 'autoloader'
+    'funcs', '../conf', 'Request', 'r', 'Controller', 'Model', 'Entity', 'View', 'Mvc', 'autoloader'
 ];
 
 foreach($coreLibs as $n){
