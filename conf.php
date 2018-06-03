@@ -10,6 +10,13 @@ class Conf {
     
     const host = 'micro.cms';
     
+    // 'mysql:'
+    const dbConnectionString = 'mysql:dbname=microcms;host=localhost';
+    
+    const dbUser = 'mysql';
+    
+    const dbPass = 'mysql';
+    
     private static $data  = [
         'entityFields' => [
             'OtherUser' => 'id,login,pass,email'

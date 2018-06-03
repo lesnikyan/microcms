@@ -11,6 +11,10 @@ class r {
         return self::fromArray($_POST, $key);
     }
     
+    public static function fromPost($keys){
+        return array_intersect_key($_POST, array_flip($keys));
+    }
+    
     public static function fromArray($arr, $key){
         return isset($arr[$key]) ? $arr[$key] : null;
     }
@@ -56,13 +60,17 @@ class cookie {
         return r::fromArray($_COOKIE, $key);
     }
     
-    public static function set($key, $val, $expire){
-        setcookie($key, $val, $expire);
+    public static function set($key, $val, $expire = 0, $path = '/'){
+        setcookie($key, $val, $expire, $path);
+    }
+    
+    public function has($key){
+        return isset($_COOKIE[$key]);
     }
     
     public static function del($key){
         if(isset($_COOKIE[$key])){
-            self::set($key, 0, 0);
+            self::set($key, 0, 1);
         }
     }
     

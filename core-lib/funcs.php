@@ -6,6 +6,9 @@ function p($var='#'){
         $str = objToStr($var);
     } else if(is_array($var)){
         $str = arrToStr($var);
+    } else if(is_string($str)) {
+        // just string
+        $str = $var;
     } else {
         $str = objToStr($var);
     }

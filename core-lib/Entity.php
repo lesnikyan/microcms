@@ -1,13 +1,13 @@
 <?php
 
-namespace Db;
+namespace Mvc;
 
 /**
  * Description of Entity
  *
  * @author Less
  */
-class Entity {
+abstract class Entity {
     
     protected static $fields = [];
     
@@ -15,8 +15,16 @@ class Entity {
     
     protected static $table = null;
     
+    function __construct($data = []){
+        $this->setData($data);
+    }
+    
     public static function getFields(){
         return static::$fields;
+    }
+    
+    public static function getTable(){
+        return static::$table;
     }
     
     public function __get($key){
@@ -33,6 +41,21 @@ class Entity {
     
     public function getData(){
         return $this->data;
+    }
+    
+    public function setData($data){
+        foreach(static::$fields as $field) {
+//            p("$field :  $data[$field]");
+            if(isset($data[$field])){
+                $this->data[$field] = $data[$field];
+            } else if(! isset($this->data[$field])){
+                $this->data[$field] = null;
+            }
+        }
+    }
+    
+    public static function getClass(){
+        return get_called_class();
     }
     
 }

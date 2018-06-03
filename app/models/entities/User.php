@@ -7,11 +7,11 @@ namespace Db\Entity;
  *
  * @author Less
  */
-class User extends \Db\Entity {
+class User extends \Mvc\Entity {
     
-    protected static $fields = ['id', 'name', 'login', 'pass', 'auth_key'];
+    protected static $fields = ['id', 'name', 'login', 'pass', 'email'];
     
-    protected static $table = 'user';
+    protected static $table = 'users';
     
     
 }

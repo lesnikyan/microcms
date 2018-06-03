@@ -6,7 +6,7 @@ spl_autoload_register(function($className){
     }
     if(preg_match('#^Mvc\\\\([\w]+)$#', $className, $m)){
         // load lib classes
-    } else if(preg_match('#^Db\\\\([\w]+)$#', $className, $m)){
+    } else if(preg_match('#^Db\\\\Model\\\\([\w]+)$#', $className, $m)){
         // load models
         CLassLoader::loadModel($m[1]);
 //        p('Loader; load models');
@@ -41,7 +41,7 @@ class ClassLoader {
         self::loadClass($name, CONTROLLER_DIR);
     }
     
-    public static function loadModel(){
+    public static function loadModel($name){
         self::loadClass($name, APP_DIR . '/models');
     }
     
