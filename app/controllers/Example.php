@@ -122,3 +122,21 @@ class Example extends \Mvc\Controller {
     }
 
 }
+
+
+/*
+ * Db structure for Example
+ * 
+CREATE TABLE `items` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `type` enum('simple','common','complicated','small','large') COLLATE utf8_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `count` int(11) NOT NULL,
+  `rating` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`);
+ */
