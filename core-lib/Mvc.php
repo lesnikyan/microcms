@@ -74,4 +74,8 @@ class Mvc {
         print $this->output;
     }
     
+    public function request(){
+        return $this->request;
+    }
+    
 }
