@@ -133,15 +133,9 @@ class Model {
         } else if(is_array ($condition)){
             // select by field=? set
             // TODO: implement case with field-val conditions
-            $conds = [];
-            foreach($condition as $field => $val){
-                if(in_array($field, $fields)){
-                    $conds = self::beqt($field) . " = ? ";
-                    $params[] = $val;
-                }
-            }
-            $conditionStr = implode(', ', $conds);
-            
+            $conditionVars = $this->arrayCondition($condition);
+            $params = $conditionVars['params'];
+            $conditionStr = $conditionVars['str'];
         }
         $orderStr = '';
         $limitStr = '';
@@ -151,11 +145,23 @@ class Model {
         if($limit){
             $limitStr = "LIMIT {$limit[0]}, {$limit[1]}";
         }
-//        p("Cond: $conditionStr");
         
         $sql = "SELECT {$fieldStr} FROM {$this->table} WHERE {$conditionStr} {$orderStr} {$limitStr} ;";
         $data = $this->select($sql, $params);
         return $data;
+    }
+    
+    function arrayCondition($condition){
+        $conds = [];
+        $fields = $this->entityFields();
+        foreach($condition as $field => $val){
+            if(in_array($field, $fields)){
+                $conds[] = self::beqt($field) . " = ? ";
+                $params[] = $val;
+            }
+        }
+        $conditionStr = implode(' AND ', $conds);
+        return ['str' => $conditionStr, 'params' => $params];
     }
     
     /**
