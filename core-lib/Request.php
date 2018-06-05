@@ -77,4 +77,17 @@ class Request {
         }
     }
     
+    /**
+     * get current method or check expected method 
+     * @param string $val - expected method (get, post, ... )
+     * @return string current method, or bool if $val != null
+     */
+    public function method($val=null){
+        $reqMethod = $_SERVER['REQUEST_METHOD'];
+        if(is_null($val)){
+            return $reqMethod;
+        }
+        return (bool)(strcasecmp($reqMethod, $val) == 0);
+    }
+    
 }

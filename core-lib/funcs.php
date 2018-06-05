@@ -1,12 +1,12 @@
 <?php
 
 function p($var='#'){
-        $str = '';
+    $str = '';
     if(is_object($var)){
         $str = objToStr($var);
     } else if(is_array($var)){
         $str = arrToStr($var);
-    } else if(is_string($str)) {
+    } else if(is_string($var)) {
         // just string
         $str = $var;
     } else {
@@ -30,7 +30,7 @@ function objToStr($var, $toString = false){
         return print_r($var, true);
     } else if(is_string($var)){
         return "'$var'";
-    } else if(is_bool($val)){
+    } else if(is_bool($var)){
         return ($var ? 'TRUE' : 'FALSE');
     } else if(is_null($var)){
         return 'NULL';
