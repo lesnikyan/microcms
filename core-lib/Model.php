@@ -150,7 +150,7 @@ class Model {
             $limitStr = "LIMIT {$limit[0]}, {$limit[1]}";
         }
         
-        $sql = "SELECT {$fieldStr} FROM {$this->table} WHERE {$conditionStr} {$orderStr} {$limitStr} ;";
+        $sql = "SELECT {$fieldStr} FROM `{$this->table}` WHERE {$conditionStr} {$orderStr} {$limitStr} ;";
         $data = $this->select($sql, $params);
         return $data;
     }
@@ -217,7 +217,7 @@ class Model {
             }
             $dataStr = implode(', ', $dataList);
             $vals[] = $entity->id;
-            $sql = "UPDATE {$this->table} SET {$dataStr} WHERE `id` = ?;";
+            $sql = "UPDATE `{$this->table}` SET {$dataStr} WHERE `id` = ?;";
             return $this->update($sql, $vals);
         } else {
             // create
