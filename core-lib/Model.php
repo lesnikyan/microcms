@@ -33,6 +33,10 @@ class Model {
         self::$db->query("SET NAMES UTF8;");
     }
     
+    /**
+     * 
+     * @return \PDO
+     */
     public static function getDB(){
         if(self::$db == null){
             self::$db = new \PDO(Conf::dbConnectionString, Conf::dbUser, Conf::dbPass);
