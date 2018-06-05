@@ -15,9 +15,10 @@ class View {
     
     protected $__defaultContent = '[ NO CONTENT ]';
     
-    protected static $viewDir = APP_DIR . '/views/';
+    protected static $viewDir;
 
     public function __construct($tpl=null, $data=[]) {
+        self::$viewDir = APP_DIR . '/views/';
         $this->tpl = $tpl;
         if(is_string($data)){
             $this->data['content'] = $data;

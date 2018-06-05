@@ -66,7 +66,7 @@ class Request {
             'params' => $params,
             'segments' => $segments,
             'url' => $url,
-            'query' => $query
+//            'query' => $query
         ];
 //        pr($this->data);
     }
